@@ -27,5 +27,7 @@ once the server is running, assuming use of the default port.
 
 ### Notes
 * The server is strictly necessary only for Chrome users, since Chrome
-restricts geolocation from local files. For others, the browser interface can
-be accessed by simply opening `index.html`.
+restricts geolocation from local files.
+* For non-Chrome users, the browser interface can be accessed by simply opening
+`index.html`. However, the command-line interface requires the server to be
+running.
