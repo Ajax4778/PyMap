@@ -2,10 +2,12 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var Map = React.createClass({
+  DEF_COORDS: {lat: 37.7833, lng: -122.4167},
+
   componentDidMount: function() {
     var map = ReactDOM.findDOMNode(this.refs.map);
     var mapOptions = {
-      center: {lat: 37.7758, lng: -122.435},
+      center: this.DEF_COORDS,
       zoom: 13
     };
 

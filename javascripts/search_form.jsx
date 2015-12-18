@@ -23,7 +23,11 @@ var SearchForm = React.createClass({
       </form>
     );
 
-    return (<div className='search-form-container'>{form}</div>);
+    return (
+      <div className='search-form-container'>
+        {form}
+      </div>
+    );
   }
 });
 
