@@ -2,27 +2,31 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var Map = React.createClass({
-  DEF_COORDS: {lat: 37.7833, lng: -122.4167},
-
   componentDidMount: function() {
+    this.update();
+  },
+
+  componentDidUpdate: function() {
+    this.update();
+  },
+
+  shouldComponentUpdate: function(nextProps, nextState) {
+    return this.props.coords !== nextProps.coords;
+  },
+
+  update: function() {
     var map = ReactDOM.findDOMNode(this.refs.map);
+    var coords = this.props.coords;
     var mapOptions = {
-      center: this.DEF_COORDS,
-      zoom: 13
+      center: coords,
+      zoom: this.props.zoom
     };
-
     this.map = new google.maps.Map(map, mapOptions);
-    thisMap = this.map;
-    thisMap.addListener('idle', function() {
-      var nE = thisMap.getBounds().getNorthEast();
-      var sW = thisMap.getBounds().getSouthWest();
-      var bounds = {'bounds' :{
-        'northEast': { 'lat': nE.lat(), 'lng': nE.lng() },
-        'southWest': { 'lat': sW.lat(), 'lng': sW.lng() }
-      }};
 
-      // ApiUtil.fetchStairs(bounds);
-    });
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(coords.lat, coords.lng)
+      });
+    marker.setMap(this.map);
   },
 
   render: function() {
