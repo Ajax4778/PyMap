@@ -15,19 +15,19 @@ geolocation from localhost.
 * Run `npm install` from the repository's root folder. This will set up all the
 necessary Javascript dependencies via `package.json`.
 * Run `webpack` from within the repository's root folder. This will bundle the
-various Javascript files into `javascripts/bundle.js`. Note that this bundle
-file is not included in the git repository and must be created.
+various Javascript files into `javascripts/bundle.js`. (Note that this bundle
+file is not included in the repository; it will be created by webpack.)
 * Finally, run `python3 -m http.server` to start the server.
 
 ### Usage
+#### With Server (recommended)
 * The browser interface can be accessed at `localhost:8000/index.html`
 once the server is running, assuming use of the default port.
 * The command-line interface can be accessed by running
-`python3 geocode_shell.py` from the repository's root folder.
+`python3 geocode_shell.py` from the repository's root folder.  
 
-### Notes
-* The server is strictly necessary only for Chrome users, since Chrome
-restricts geolocation from local files.
-* For non-Chrome users, the browser interface can be accessed by simply opening
-`index.html`. However, the command-line interface requires the server to be
-running.
+#### Without Server (browser only)
+* Simply open `index.html` for the browser interface. However, Chrome users
+will not be able to let the application access their locations without the
+server, since Chrome prevents geolocation from local files.
+* The command-line interface requires the server to be running.
