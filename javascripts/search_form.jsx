@@ -6,7 +6,7 @@ var SearchForm = React.createClass({
   mixins: [LinkedStateMixin],
 
   getInitialState: function() {
-    return { searchInput: '', };
+    return { searchInput: '' };
   },
 
   render: function() {
